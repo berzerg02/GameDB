@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,9 @@ namespace PACRKS_HFT_2022231.Models
         public double Deaths { get; set; }
         public double ShotsFired { get; set; }
         public double ShotsConnected { get; set; }
-        [ForeignKey(nameof(Player))]
-        public int PlayerId { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int StatId { get; set; }
+        public virtual Player Player { get; set; }
     }
 }
