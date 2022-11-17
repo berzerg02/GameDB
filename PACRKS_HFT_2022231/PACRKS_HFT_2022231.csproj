@@ -6,15 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="InMemoryDb" Version="0.6.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.17" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.14" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PACRKS_HFT_2022231.Models\PACRKS_HFT_2022231.Models.csproj" />
-    <ProjectReference Include="..\PACRKS_HFT_2022231.Repository\PACRKS_HFT_2022231.Repository.csproj" />
   </ItemGroup>
 
 </Project>
