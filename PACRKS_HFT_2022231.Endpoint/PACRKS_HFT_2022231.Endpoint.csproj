@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PACRKS_HFT_2022231.Logic\PACRKS_HFT_2022231.Logic.csproj" />
     <ProjectReference Include="..\PACRKS_HFT_2022231.Models\PACRKS_HFT_2022231.Models.csproj" />
     <ProjectReference Include="..\PACRKS_HFT_2022231.Repository\PACRKS_HFT_2022231.Repository.csproj" />
