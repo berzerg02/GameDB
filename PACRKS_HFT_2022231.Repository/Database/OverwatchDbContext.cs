@@ -13,6 +13,7 @@ namespace PACRKS_HFT_2022231.Repository
         public virtual DbSet<Characters> Characters { get; set; }
         public virtual DbSet<Match> Match { get; set; }
         public virtual DbSet<Player> Player { get; set; }
+        public virtual DbSet<Stats> Stat { get; set; }
         public OverwatchDbContext()
         {
             this.Database.EnsureCreated();
