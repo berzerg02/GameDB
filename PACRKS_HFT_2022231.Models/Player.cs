@@ -13,10 +13,10 @@ namespace PACRKS_HFT_2022231.Models
         public int PlayerId { get; set; }
         public string Username { get; set; }
         public string Rank { get; set; }
-        //[ForeignKey(nameof(Stats))]
+        [ForeignKey(nameof(Stats))]
         public int StatId { get; set; }
         public virtual Stats Stat { get; set; }
-        //[ForeignKey(nameof(Characters))]
+        [ForeignKey(nameof(Characters))]
         public int CharacterId { get; set; }
         public virtual Characters Character { get; set; }
         public int MatchId { get; set; }
