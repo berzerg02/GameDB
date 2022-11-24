@@ -78,7 +78,7 @@ namespace PACRKS_HFT_2022231.Repository
                     new Player() {Username = "Nesquik", CharacterId = 6, MatchId = 1, Rank = "Diamond", StatId = 7, PlayerId = 7},
 
                     new Player() {Username = "ManDingo", CharacterId = 9, MatchId = 2, Rank = "Diamond", StatId = 9, PlayerId = 9},
-                    new Player() {Username = "HatHelo", CharacterId = 10, MatchId = 2, Rank = "Gold", StatId = 10, PlayerId = 10},
+                    new Player() {Username = "Infopek", CharacterId = 10, MatchId = 2, Rank = "Gold", StatId = 10, PlayerId = 10},
                     new Player() {Username = "Noroi", CharacterId = 11, MatchId = 2, Rank = "Platinum", StatId = 11, PlayerId = 11},
                     new Player() {Username = "Raven", CharacterId = 12, MatchId = 2, Rank = "Immortal", StatId = 12, PlayerId = 12},
                     new Player() {Username = "Beatlewhochewshgum", CharacterId = 13, MatchId = 2, Rank = "Grandmaster", StatId = 13, PlayerId = 13},
