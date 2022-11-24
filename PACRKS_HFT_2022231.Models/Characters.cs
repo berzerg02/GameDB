@@ -10,6 +10,14 @@ namespace PACRKS_HFT_2022231.Models
 {
     public class Characters
     {
+        public Characters(int characterId, string name, string skin, string type)
+        {
+            CharacterId = characterId;
+            Name = name;
+            Skin = skin;
+            Type = type;
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CharacterId { get; set; }
@@ -18,5 +26,9 @@ namespace PACRKS_HFT_2022231.Models
         public string Type { get; set; }
         public virtual ICollection<Player> Players { get; set; }
 
+        public Characters()
+        {
+
+        }
     }
 }

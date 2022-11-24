@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PACRKS_HFT_2022231.Repository
 {
-    interface IRepository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         IQueryable<T> ReadAll();
         T Read(int id);

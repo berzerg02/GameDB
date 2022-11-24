@@ -11,12 +11,12 @@ namespace PACRKS_HFT_2022231.Logic.Classes
 {
     public class MatchLogic : IMatchLogic
     {
-        IRepository<Match> repo;
-        public MatchLogic(IRepository<Match> repo)
+        IRepository<Matches> repo;
+        public MatchLogic(IRepository<Matches> repo)
         {
             this.repo = repo;
         }
-        public void Create(Match item)
+        public void Create(Matches item)
         {
             this.repo.Create(item);
         }
@@ -26,17 +26,17 @@ namespace PACRKS_HFT_2022231.Logic.Classes
             this.repo.Delete(id);
         }
 
-        public Match Read(int id)
+        public Matches Read(int id)
         {
             return this.repo.Read(id);
         }
 
-        public IQueryable<Match> ReadAll()
+        public IQueryable<Matches> ReadAll()
         {
             return this.repo.ReadAll();
         }
 
-        public void Update(Match item)
+        public void Update(Matches item)
         {
             this.repo.Update(item);
         }

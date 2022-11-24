@@ -4,7 +4,7 @@ using PACRKS_HFT_2022231.Repository;
 using System;
 using System.Linq;
 
-namespace PACRKS_HFT_2022231.Logic
+namespace PACRKS_HFT_2022231.Logic.Classes
 {
     public class PlayerLogic : IPlayerLogic
     {
@@ -36,6 +36,18 @@ namespace PACRKS_HFT_2022231.Logic
         public void Update(Player item)
         {
             this.repo.Update(item);
+        }
+
+        //non-crud 4
+        public double? PlayerKD(string playername)
+        {
+            return this.repo.ReadAll().Where(x => x.Username == playername).Sum(x => x.Stat.Kills / x.Stat.Deaths);
+        }
+
+        //non-crud 5
+        public double? PlayerPlayedTime(string playername)
+        {
+            return this.repo.ReadAll().Where(x => x.Username == playername).Sum(x => x.Stat.TimePlayed);
         }
     }
 }

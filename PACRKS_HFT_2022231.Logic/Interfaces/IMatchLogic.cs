@@ -9,10 +9,10 @@ namespace PACRKS_HFT_2022231.Logic.Interfaces
 {
     public interface IMatchLogic
     {
-        void Create(Match item);
+        void Create(Matches item);
         void Delete(int id);
-        Match Read(int id);
-        IQueryable<Match> ReadAll();
-        void Update(Match item);
+        Matches Read(int id);
+        IQueryable<Matches> ReadAll();
+        void Update(Matches item);
     }
 }

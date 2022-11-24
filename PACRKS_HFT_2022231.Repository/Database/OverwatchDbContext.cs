@@ -11,7 +11,7 @@ namespace PACRKS_HFT_2022231.Repository
     public class OverwatchDbContext : DbContext
     {
         public virtual DbSet<Characters> Characters { get; set; }
-        public virtual DbSet<Match> Match { get; set; }
+        public virtual DbSet<Matches> Match { get; set; }
         public virtual DbSet<Player> Player { get; set; }
         public virtual DbSet<Stats> Stat { get; set; }
         public OverwatchDbContext()
@@ -20,7 +20,10 @@ namespace PACRKS_HFT_2022231.Repository
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseInMemoryDatabase("OverwatchDatabase").UseLazyLoadingProxies();
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseInMemoryDatabase("OverwatchDatabase").UseLazyLoadingProxies();
+            }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -108,14 +111,14 @@ namespace PACRKS_HFT_2022231.Repository
 
                 };
             ;
-            var match = new Match[]
+            var match = new Matches[]
                 {
-                    new Match() {Length = 35f, Map = "Dorado", MatchId = 1, Type = "Ranked"},
-                    new Match() {Length = 30f, Map = "Havana", MatchId = 2, Type = "Casual"}
+                    new Matches() {Length = 35f, Map = "Dorado", MatchId = 1, Type = "Ranked"},
+                    new Matches() {Length = 30f, Map = "Havana", MatchId = 2, Type = "Casual"}
 
                 };
 
-            modelBuilder.Entity<Match>().HasData(match);
+            modelBuilder.Entity<Matches>().HasData(match);
             modelBuilder.Entity<Player>().HasData(players);
             modelBuilder.Entity<Characters>().HasData(chars);
             modelBuilder.Entity<Stats>().HasData(stats);

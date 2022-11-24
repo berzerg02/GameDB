@@ -19,25 +19,25 @@ namespace PACRKS_HFT_2022231.Endpoint.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Match> ReadAll()
+        public IEnumerable<Matches> ReadAll()
         {
             return this.logic.ReadAll();
         }
 
         [HttpGet("{id}")]
-        public Match Read(int id)
+        public Matches Read(int id)
         {
             return this.logic.Read(id);
         }
 
         [HttpPost]
-        public void Create([FromBody] Match value)
+        public void Create([FromBody] Matches value)
         {
             this.logic.Create(value);
         }
 
         [HttpPut]
-        public void Put([FromBody] Match value)
+        public void Put([FromBody] Matches value)
         {
             this.logic.Update(value);
         }

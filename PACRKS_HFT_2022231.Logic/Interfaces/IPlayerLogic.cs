@@ -14,5 +14,9 @@ namespace PACRKS_HFT_2022231.Logic.Interfaces
         Player Read(int id);
         IQueryable<Player> ReadAll();
         void Update(Player item);
+
+        //non-cruds
+        double? PlayerKD(string name);
+        double? PlayerPlayedTime(string name);
     }
 }

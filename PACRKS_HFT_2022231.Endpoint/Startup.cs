@@ -40,7 +40,7 @@ namespace PACRKS_HFT_2022231.Endpoint
 
             services.AddTransient<IRepository<Player>, PlayerRepository>();
             services.AddTransient<IRepository<Stats>, StatsRepository>();
-            services.AddTransient<IRepository<Match>, MatchRepository>();
+            services.AddTransient<IRepository<Matches>, MatchRepository>();
             services.AddTransient<IRepository<Characters>, CharactersRepository>();
 
             services.AddTransient<IPlayerLogic, PlayerLogic>();

@@ -40,5 +40,27 @@ namespace PACRKS_HFT_2022231.Logic.Classes
         {
             this.repo.Update(item);
         }
+
+        //Non-crud1
+        public double? AverageKillsInMatchOne()
+        {
+            return this.repo.ReadAll().Where(x => x.Player.MatchId == 1).Average(x => x.Kills);
+        }
+
+        //Non-crud2
+        public double? MaxKills(int matchid)
+        {
+            return this.repo.ReadAll().Where(x => x.Player.MatchId == matchid).Max(x => x.Kills);
+        }
+
+        //Non-crud3
+        public double? MinDeaths(int matchid)
+        {
+            return this.repo.ReadAll().Where(x => x.Player.MatchId == matchid).Min(x => x.Deaths);
+        }
+
+        
+        
+
     }
 }

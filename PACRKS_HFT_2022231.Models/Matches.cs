@@ -9,8 +9,20 @@ using System.Threading.Tasks;
 
 namespace PACRKS_HFT_2022231.Models
 {
-    public class Match
+    public class Matches
     {
+        public Matches(int matchId, float length, string map, string type)
+        {
+            MatchId = matchId;
+            Length = length;
+            Map = map;
+            Type = type;
+        }
+        public Matches()
+        {
+
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MatchId { get; set; }

@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace PACRKS_HFT_2022231.Repository.ModelRepositories
 {
-    class MatchRepository : Repository<Match>, IRepository<Match> 
+    public class MatchRepository : Repository<Matches>, IRepository<Matches> 
     {
         public MatchRepository(OverwatchDbContext ctx) : base(ctx)
         {
 
         }
 
-        public override Match Read(int id)
+        public override Matches Read(int id)
         {
             return ctx.Match.FirstOrDefault(t => t.MatchId == id);
         }
 
-        public override void Update(Match item)
+        public override void Update(Matches item)
         {
             var old = Read(item.MatchId);
             foreach (var prop in old.GetType().GetProperties())
