@@ -30,7 +30,7 @@ namespace PACRKS_HFT_2022231.Test
         public void Init()
         {
             mockStatsRepo = new Mock<IRepository<Stats>>();
-            mockStatsRepo.Setup(m => m.ReadAll()).Returns(new List<Stats>()
+            mockStatsRepo.Setup(x => x.ReadAll()).Returns(new List<Stats>()
             {
             new Stats(15f, 15, 5, 1222,32,1)
             {
@@ -49,7 +49,7 @@ namespace PACRKS_HFT_2022231.Test
             }.AsQueryable());
 
             mockPlayerRepo = new Mock<IRepository<Player>>();
-            mockPlayerRepo.Setup(m => m.ReadAll()).Returns(new List<Player>()
+            mockPlayerRepo.Setup(x => x.ReadAll()).Returns(new List<Player>()
             {
             new Player(1, "Wasman", "Plastic", 1, 1, 1)
             {
@@ -57,7 +57,8 @@ namespace PACRKS_HFT_2022231.Test
             }
             }.AsQueryable());
 
-
+            mockCharacterRepo = new Mock<IRepository<Characters>>();
+            mockMatchesRepo = new Mock<IRepository<Matches>>(); 
 
 
 
@@ -102,7 +103,8 @@ namespace PACRKS_HFT_2022231.Test
 
             logic = new StatsLogic(mockStatsRepo.Object);
             playerlogic = new PlayerLogic(mockPlayerRepo.Object);
-           
+            characterlogic = new CharactersLogic(mockCharacterRepo.Object);
+            matchlogic = new MatchLogic(mockMatchesRepo.Object);
 
 
 
@@ -147,8 +149,49 @@ namespace PACRKS_HFT_2022231.Test
 
         [Test]
         public void Create()
-        { 
-            
+        {
+            Stats sample = new Stats(16f, 20, 14, 120121, 121212, 1);
+
+            logic.Create(sample);
+            mockStatsRepo.Verify(x => x.Create(sample), Times.Once);
+
+        }
+
+        [Test]
+        public void Create2()
+        {
+            Player sample = new Player(1, "Wasman", "PLastic", 1, 1, 1);
+
+            playerlogic.Create(sample);
+            mockPlayerRepo.Verify(x => x.Create(sample), Times.Once);
+
+        }
+
+        [Test]
+        public void Create3()
+        {
+            Characters sample = new Characters(1, "Mate", "Csunya", "MateCsunya");
+
+            characterlogic.Create(sample);
+            mockCharacterRepo.Verify(x => x.Create(sample), Times.Once);
+
+        }
+
+        [Test]
+        public void Create4()
+        {
+            Matches sample = new Matches(1, 20f, "Dorado", "Ranked");
+
+            matchlogic.Create(sample);
+            mockMatchesRepo.Verify(x => x.Create(sample), Times.Once);
+
+        }
+
+        [Test]
+        public void Delete()
+        {
+            logic.Delete(1);
+            mockStatsRepo.Verify(x => x.Delete(1), Times.Once);
         }
     }
 }
