@@ -1,4 +1,5 @@
-﻿using PACRKS_HFT_2022231.Models;
+﻿using Castle.DynamicProxy;
+using PACRKS_HFT_2022231.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,10 @@ namespace PACRKS_HFT_2022231.Repository.ModelRepositories
             var old = Read(item.MatchId);
             foreach (var prop in old.GetType().GetProperties())
             {
-                prop.SetValue(old, prop.GetValue(item));
+                if (prop.GetAccessors().FirstOrDefault(x => x.IsVirtual) == null)
+                {
+                    prop.SetValue(old, prop.GetValue(item));
+                }
             }
             ctx.SaveChanges();
         }
