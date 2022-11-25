@@ -10,13 +10,14 @@ namespace PACRKS_HFT_2022231.Models
 {
     public class Stats
     {
-        public Stats(float timePlayed, double kills, double deaths, double shotsFired, double shotsConnected)
+        public Stats(float timePlayed, double kills, double deaths, double shotsFired, double shotsConnected, int statid)
         {
             TimePlayed = timePlayed;
             Kills = kills;
             Deaths = deaths;
             ShotsFired = shotsFired;
             ShotsConnected = shotsConnected;
+            StatId = statid;
         }
         public Stats()
         {
