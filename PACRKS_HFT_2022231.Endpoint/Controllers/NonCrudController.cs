@@ -27,7 +27,7 @@ namespace PACRKS_HFT_2022231.Endpoint.Controllers
             return this.logic.AverageKillsInMatchOne();
         }
 
-        [HttpGet("{matchid}/forMaxKills")]
+        [HttpGet("{id}/forMaxKills")]
         public double? MaxKills(int matchid)
         {
             return this.logic.MaxKills(matchid);
