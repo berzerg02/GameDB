@@ -18,7 +18,11 @@ namespace PACRKS_HFT_2022231.Logic.Classes
         }
         public void Create(Stats item)
         {
-            this.repo.Create(item);
+            if (item.Kills < 0)
+            {
+                throw new Exception("You cannot have negative kills");
+            }
+            else this.repo.Create(item);
         }
 
         public void Delete(int id)
