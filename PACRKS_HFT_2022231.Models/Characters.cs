@@ -21,6 +21,7 @@ namespace PACRKS_HFT_2022231.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CharacterId { get; set; }
+        [Required]
         public string Name { get; set; }
         public string Skin { get; set; }
         public string Type { get; set; }

@@ -27,6 +27,7 @@ namespace PACRKS_HFT_2022231.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MatchId { get; set; }
         public float Length { get; set; }
+        [Required]
         public string Map { get; set; }
         public string Type { get; set; }
         [JsonIgnore]

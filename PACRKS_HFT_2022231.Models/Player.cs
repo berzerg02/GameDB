@@ -22,6 +22,7 @@ namespace PACRKS_HFT_2022231.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PlayerId { get; set; }
+        [Required]
         public string Username { get; set; }
         public string Rank { get; set; }
         [ForeignKey(nameof(Stats))]
