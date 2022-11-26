@@ -126,11 +126,7 @@ namespace PACRKS_HFT_2022231.Client
             }
         }
 
-        static void AverageKillsInMatchOne(string entity)
-        {
-
-
-        }
+        
 
         static void Create3(string entity)
         {
@@ -223,6 +219,89 @@ namespace PACRKS_HFT_2022231.Client
                 rest.Delete(id, "characters");
             }
         }
+        static void AverageKillsInMatchOne(string entity)
+        {
+            if (entity == "Stats")
+            {
+                double average = rest.GetSingle<double>("noncrud/action");
+                Console.WriteLine("Average kills in game one: " + average);
+                Console.ReadLine();
+            }
+
+        }
+
+        static void MaxKills(string name)
+        {
+            if (name == "Stats")
+            {
+                List<Matches> stats = rest.Get<Matches>("match");
+                int statcounter = stats.Count;
+                Console.WriteLine($"Enter the id(1-{statcounter}) of the match you want the max kills for: ");
+                int id = int.Parse(Console.ReadLine());
+                double maxkills = rest.GetSingle<double>($"NonCrud/action/{id}/forMaxKills");
+                Console.WriteLine("Match id: " + id + ": Max kills: " + maxkills);
+                Console.ReadLine();
+            }
+        
+        }
+
+        static void MinDeaths(string name)
+        {
+            if (name == "Stats")
+            {
+                List<Matches> stats = rest.Get<Matches>("match");
+                int statcounter = stats.Count;
+                Console.WriteLine($"Enter the id(1-{statcounter}) of the match you want the minimum deaths for: ");
+                int id = int.Parse(Console.ReadLine());
+                double minkills = rest.GetSingle<double>($"NonCrud/action/{id}/formindeaths");
+                Console.WriteLine("Match id: " + id + ": Min deaths: " + minkills);
+                Console.ReadLine();
+            }
+        
+        }
+
+        static void PlayerKD(string name)
+        {
+            if (name == "Player")
+            {
+                List<Player> player = rest.Get<Player>("player");
+                Console.WriteLine("Names of the players: ");
+                foreach (var item in player)
+                {
+                    Console.WriteLine(item.Username);
+                }
+                Console.WriteLine();
+                Console.WriteLine("Enter the name of a player you want the K/D of: ");
+                
+                string id = Console.ReadLine();
+                double playerKD = rest.GetSingle<double>($"NonCrud/action/playerkd/{id}");
+                Console.WriteLine();
+                Console.Write($"Name of the player: {id}  K/D of the player: {playerKD}");
+                Console.ReadLine();
+
+            }
+        }
+
+        static void PlayerPlayedTime(string name)
+        {
+            if (name == "Player")
+            {
+                List<Player> player = rest.Get<Player>("player");
+                Console.WriteLine("Names of the players: ");
+                foreach (var item in player)
+                {
+                    Console.WriteLine(item.Username);
+                }
+                Console.WriteLine();
+                Console.WriteLine("Enter the name of a player to see how much he/she played: ");
+
+                string id = Console.ReadLine();
+                float timeplayed = (float)rest.GetSingle<double>($"NonCrud/action/playertimeplayed/{id}");
+                Console.WriteLine();
+                Console.WriteLine($"Name of the player: {id}  Time he played: {timeplayed} minutes");
+                Console.ReadLine();
+            }
+        }
 
 
         static void Main(string[] args)
@@ -244,7 +323,6 @@ namespace PACRKS_HFT_2022231.Client
                 .Add("Create", () => Create2("Stats"))
                 .Add("Delete", () => Delete2("Stats"))
                 .Add("Update", () => Update2("Stats"))
-                .Add("AverageKills", () => AverageKillsInMatchOne("Stats"))
                 .Add("Exit", ConsoleMenu.Close);
 
             var matchesSubMenu = new ConsoleMenu(args, level: 1)
@@ -261,13 +339,22 @@ namespace PACRKS_HFT_2022231.Client
                 .Add("Update", () => Update4("Characters"))
                 .Add("Exit", ConsoleMenu.Close);
 
+            var noncrudSubMenu = new ConsoleMenu(args, level: 1)
+                .Add("Show me the average kills in the first match!", () => AverageKillsInMatchOne("Stats"))
+                .Add("Show me the max kills in a certain match!", () => MaxKills("Stats"))
+                .Add("Show me the minimum number of deaths in a certain match!", () => MinDeaths("Stats"))
+                .Add("Show me the K/D of a certain player!", () => PlayerKD("Player"))
+                .Add("Show me how much a certain player played in a game!", () => PlayerPlayedTime("Player"))
+                .Add("Exit", ConsoleMenu.Close);
+
 
 
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Player", () => playerSubMenu.Show())
                 .Add("Stats", () => statsSubMenu.Show())
                 .Add("Matches", () => matchesSubMenu.Show())
-                .Add("Characters", () => charactersSubMenu.Show())    
+                .Add("Characters", () => charactersSubMenu.Show())
+                .Add("Non crud menu points", () => noncrudSubMenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
 
             menu.Show();
