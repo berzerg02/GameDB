@@ -28,9 +28,9 @@ namespace PACRKS_HFT_2022231.Endpoint.Controllers
         }
 
         [HttpGet("{id}/forMaxKills")]
-        public double? MaxKills(int matchid)
+        public double? MaxKills(int id)
         {
-            return this.logic.MaxKills(matchid);
+            return this.logic.MaxKills(id);
         }
        
         [HttpGet("{matchid}/forMinDeaths")]
