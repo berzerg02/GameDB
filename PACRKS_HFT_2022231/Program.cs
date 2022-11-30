@@ -306,7 +306,7 @@ namespace PACRKS_HFT_2022231.Client
 
         static void Main(string[] args)
         {
-            rest = new RestService("http://localhost:5000/", "swagger");
+            rest = new RestService("http://localhost:35367/", "swagger");
             try
             {
 
