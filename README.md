@@ -1,4 +1,4 @@
-# PACRKS_HFT_2022231
+# GameDataBase
 
 Alapvetően 16 karakter van, amiknek az id-i 1-16-ig mennek, továbbá 16 player van, 16 stat és 2 match
 
